@@ -23,7 +23,7 @@
 
 
 ## Requirements
-- Node.js v14 or higher
+- Node.js v18 or higher
 
 ## Getting Started
 
