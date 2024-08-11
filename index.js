@@ -12,7 +12,7 @@ const STAR = "*".charCodeAt(0);
  *
  * @throws {TypeError}
  */
-function* jsdocExtractor(buf) {
+module.exports = function* jsdocExtractor(buf) {
   if (!Buffer.isBuffer(buf)) {
     throw new TypeError("buf must be a Node.js Buffer");
   }
@@ -31,7 +31,4 @@ function* jsdocExtractor(buf) {
       }
     }
   }
-}
-
-// Export JSDoc extractor
-module.exports = jsdocExtractor;
+};

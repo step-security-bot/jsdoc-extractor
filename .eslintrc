@@ -1,7 +1,7 @@
 {
   "extends": "@nodesecure/eslint-config",
   "parserOptions": {
-      "sourceType": "script",
-      "requireConfigFile": false
+    "sourceType": "script",
+    "requireConfigFile": false
   }
 }

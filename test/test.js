@@ -1,17 +1,20 @@
 "use strict";
 
+// Import Node.js Dependencies
+const { test } = require("node:test");
+const assert = require("node:assert");
+
 // Require Third-party Dependencies
-const ava = require("ava");
 const is = require("@slimio/is");
 
-// Require Internal
-const jsdocExtractor = require("../index");
+// Require Internal Dependencies
+const jsdocExtractor = require("../index.js");
 
-ava("test export", (assert) => {
-  assert.true(is.generatorFunction(jsdocExtractor));
+test("test export", () => {
+  assert.ok(is.generatorFunction(jsdocExtractor));
 });
 
-ava("extract two blocks", (assert) => {
+test("extract two blocks", () => {
   const jsdocAnnotations = `
     /**
      * @class test
@@ -24,11 +27,11 @@ ava("extract two blocks", (assert) => {
     `;
 
   const it = jsdocExtractor(Buffer.from(jsdocAnnotations));
-  assert.true(is.iterable(it));
+  assert.ok(is.iterable(it));
   for (const block of it) {
-    assert.true(Array.isArray(block));
-    assert.true(Buffer.isBuffer(block[0]));
-    assert.true(typeof block[1] === "number");
-    assert.true(typeof block[2] === "number");
+    assert.ok(Array.isArray(block));
+    assert.ok(Buffer.isBuffer(block[0]));
+    assert.ok(typeof block[1] === "number");
+    assert.ok(typeof block[2] === "number");
   }
 });
